@@ -1,10 +1,13 @@
-function sendEmails() {
+function sendEmailsScript() {
   // Open the active spreadsheet
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
 
   // Get data range
   var dataRange = sheet.getDataRange();
   var data = dataRange.getValues();
+
+  // Get the current date
+  var currentDate = new Date();
 
   // Start from the second row to skip the header
   for (var i = 1; i < data.length; i++) {
@@ -36,5 +39,8 @@ function sendEmails() {
       subject: subject,
       htmlBody: body, // Set the HTML body for formatting
     });
+
+    // Update the date in the F column
+    sheet.getRange(i + 1, 6).setValue(currentDate); // Assuming the F column is column 6
   }
 }
