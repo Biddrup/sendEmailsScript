@@ -24,9 +24,16 @@ function sendEmailsScript() {
     var subject = recipientName + "'s Untouched Growth 4 Possibilities";
     var body = "<p>Dear <b>" + recipientName + "</b>,</p><p>I trust this message finds you well.</p>" +
       "<p>My name is Mallick, representing Just Because Media, a distinguished five-star digital marketing agency headquartered in Connecticut.</p>" +
-      "<p>Over the course of our ongoing industry analysis, we have closely observed <b>" + recipientName + "</b>, recognizing the agency's esteemed reputation within the <b>" + category + "</b> sector.</p>" +
-      "<p>Impressed by your commitment to delivering exemplary solutions, we acknowledge <b>" + recipientName + "'s " + rating + " rating based on " + reviews + "</b>, affirming your agency's dedication to excellence.</p>" +
-      "<p>Through our research, it has come to our attention that there may be untapped opportunities for enhancement within your business.</p>" +
+      "<p>Over the course of our ongoing industry analysis, we have closely observed <b>" + recipientName + "</b>, recognizing the agency's esteemed reputation within the <b>" + category + "</b> sector.</p>";
+
+    // Check if reviews are 0
+    if (reviews == 0) {
+      body += "<p>We understand that currently, there are no reviews showcasing your agency's capabilities. This presents a unique opportunity for you to leverage our services and establish a strong online presence. Our expertise in digital marketing can help you build credibility and reach a wider audience, ultimately enhancing your agency's success.</p>";
+    } else {
+      body += "<p>Impressed by your commitment to delivering exemplary solutions with <b>" + recipientName + "'s " + rating + " rating based on " + reviews + "</b>, affirming your agency's dedication to excellence.</p>";
+    }
+
+    body += "<p>Through our research, it has come to our attention that there may be untapped opportunities for enhancement within your business.</p>" +
       "<p>At Just Because Media, we specialize in maximizing these opportunities, driving a significant increase in return on investment (ROI) for our clients.</p>" +
       "<p>Should you be open to exploration, I invite you to respond to this email at your earliest convenience.</p>" +
       "<p>Upon your confirmation, a member of our team will reach out to you promptly, providing insights into how Just Because Media can contribute to the continued success of your agency.</p>" +
